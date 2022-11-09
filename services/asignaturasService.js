@@ -67,7 +67,9 @@ const fetch = (...args) =>
 
 async function auxGetAsignatures(args) {
   const query = queryAsignature(args)
-  
+  console.log("url: ", url)
+  console.log("query: ", query)
+
   try {
     const response = await fetch(url, 
       {
@@ -81,8 +83,10 @@ async function auxGetAsignatures(args) {
         })
       })
     const data = await response.json()
+    console.log("Data good: ", data.data)
     return data.data
   } catch (error) {
+    console.log("Error en data: ", error)
     return null
   }
 }
@@ -94,9 +98,12 @@ const AsignaturasService = soap.soap({
         async GetAsignaturas({ codigo_asignatura }, res) {
 
           res({asignatura: await auxGetAsignatures(codigo_asignatura).then(data => {
+            console.log("Código asignatura: ", codigo_asignatura)
             if (data == null) {
+              console.log("Data es null, o sea, arriba falló xd.")
               return [fakeInfo().asignatura]
             }
+            console.log("¡Lo lograste crack!")
             return [data.asignatura]
             })
           });
