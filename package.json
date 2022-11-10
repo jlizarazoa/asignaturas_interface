@@ -9,11 +9,10 @@
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "express": "~4.16.1",
-    "express-soap": "^1.1.2",
     "http-errors": "~1.6.3",
     "morgan": "~1.9.1",
     "node-fetch": "^3.2.10",
     "pug": "2.0.0-beta11",
-    "soap": "^0.45.0"
+    "soap": "^0.30.0"
   }
 }
